@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> prefix_function(string s){
+int prefix_function(string s){
     int n = s.size();
     vector<int> pi(n);
     for(int i = 1; i < n; i++){
@@ -14,17 +14,19 @@ vector<int> prefix_function(string s){
             j++;
         pi[i] = j;
     }
-    return pi;
+    return n - pi[s.size()-1];
 }
 
 int main(){
     int n;
-    cin >> n;
     string s;
-    cin >> s;
-    vector<int> pi = prefix_function(s);
-    for(int i = 0; i < s.size(); i++){
-        cout << pi[i] << " ";
+    cin >> n;
+    for (int i = 0; i<n; i++){
+        cin >> s;
+    int pi = prefix_function(s);
+      if(s.size() % pi == 0){
+    cout << s.size() / pi;
+}
+   else cout << 1;
     }
-    return 0;
 }
